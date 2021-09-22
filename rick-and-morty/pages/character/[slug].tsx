@@ -1,7 +1,8 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import Link from "next/link";
+import Meta from "@/components/_shared/Meta";
 
-import mockSingleCharacter from "mockdata/singleCharacter.json";
 import {
   Header,
   HeaderCharacterInformationWrapper,
@@ -9,7 +10,8 @@ import {
   Wrapper,
   Footer,
 } from "./Character.styled";
-import { useRouter } from "next/router";
+
+import mockSingleCharacter from "mockdata/singleCharacter.json";
 
 const CharacterPage: NextPage = () => {
   const router = useRouter();
@@ -17,6 +19,7 @@ const CharacterPage: NextPage = () => {
   // router.query.slug is the Character id and can be used to fetch the character data inside the useEffect hook
   console.log(router.query.slug);
 
+  const title = "Rich and Morty";
   const singleCharacter: LickApi.ICharacter = mockSingleCharacter.data;
   const orderedAppearanceEpisodes = singleCharacter.episodes.sort((a, b) => {
     return new Date(a.airDate).getTime() - new Date(b.airDate).getTime();
@@ -24,8 +27,9 @@ const CharacterPage: NextPage = () => {
 
   return (
     <>
+      <Meta title={title} />
       <Header>
-        <h1>Rick and Morty</h1>
+        <h1>{title}</h1>
         <Link href="/">{"< Back to charact listing"}</Link>
         <HeaderCharacterWrapper>
           <img
@@ -73,7 +77,6 @@ const CharacterPage: NextPage = () => {
           }
         </p>
       </Wrapper>
-
       <Footer />
     </>
   );
