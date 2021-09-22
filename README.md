@@ -8,6 +8,8 @@ This is a 2 hours test, so all you can see is done in 2 hours.
 - Prettier already run on my VSCode, I added a simple file .prettierc.json to avoid conflicts with different configurations.
 - Add ESLint, eslint probably can cause conflicts with prettier, so following this documentation could save this problem: https://javascript.plainenglish.io/setting-eslint-and-prettier-on-a-react-typescript-project-2021-22993565edf9
 - Github CI, during push and pull request to some branches "ex: production, staging and development" I'd like to create lint checks, run tests, auto build and deploy, a good guide found to build it is here: https://sviat-kuzhelev.medium.com/progressive-front-end-ci-on-github-actions-817a29938e4f
+- Fix (expectedts-styled-plugin(9999)) lint "error" inside styled components.
+- Create style standards and styled components at least for buttons and text or add a style library.
 
 ## Run the app
 
