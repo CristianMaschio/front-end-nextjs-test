@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import { ProfileCard, Wrapper } from "./CharactersList.styled";
 
@@ -10,6 +11,8 @@ const CharactersList: React.FC<ICharactersListProps> = ({
   className,
   characterList,
 }) => {
+  const router = useRouter();
+
   return (
     <Wrapper className={className}>
       {characterList.map((character) => (
@@ -18,7 +21,13 @@ const CharactersList: React.FC<ICharactersListProps> = ({
           <p>Name: {character.name}</p>
           <p>Gender: {character.gender}</p>
           <p>Species: {character.species}</p>
-          <button>View Profile</button>
+          <button
+            onClick={() => {
+              router.push(`/character/${character.id}`);
+            }}
+          >
+            View Profile
+          </button>
         </ProfileCard>
       ))}
     </Wrapper>
